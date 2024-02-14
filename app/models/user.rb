@@ -12,6 +12,15 @@
 #
 
 class User < ApplicationRecord
+  def photo_line
+    my_id = self.id
+
+    matching_photos = Photo.where({ :user_id => my_id })
+
+    return matching_photos
+  end
+
+
   validates(:username, {
     :presence => true,
     :uniqueness => { :case_sensitive => false },
