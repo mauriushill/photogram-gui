@@ -1,4 +1,10 @@
 class PhotoController < ApplicationController
+  def update
+    
+    redirect_to("/photos/#{}")
+  end
+
+
   def show
     the_id = params.fetch("a_photo")
     matching_photo = Photo.where({ :id => the_id })
