@@ -15,7 +15,7 @@ class User < ApplicationRecord
   def photo_line
     my_id = self.id
 
-    matching_photos = Photo.where({ :user_id => my_id })
+    matching_photos = Photo.where({ :owner_id => my_id })
 
     return matching_photos
   end

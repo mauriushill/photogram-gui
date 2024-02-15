@@ -14,6 +14,12 @@
 
 class Photo < ApplicationRecord
   validates(:poster, { :presence => true })
+  
+  def user
+    owner = self.owner_id
+    match = User.where({ :id => owner })
+    @the_owner = match.at(0)
+  end
 
   def poster
     my_owner_id = self.owner_id
