@@ -6,7 +6,7 @@
 
 
 <dt>Edit user</dt>
-<dd><form action="/users/<%= @the_user.username %>" method="post">
+<dd><form action="/update_user/<%= @the_user.username %>" method="post">
       <label for="user_field">Username</label>
         <input id="user_field" type="text" name="user_update" value="<%= @the_user.username %>">
   <button>
@@ -30,7 +30,16 @@
   <% @the_user.photo_line.order(:owner_id).each do |photo| %>
   <tr>
     <td><img src="<%= photo.image %>"></td>
-    </tr>
+
+    <td><%= @the_user.username %></td>
+
+    <td><%= photo.caption %></td>
+
+    <td><%= photo.created_at %></td>
+    
+    <td><a href="/photos/<%= photo.id %>">Show details</a></td>
+
+  </tr>
   <% end %>
   
 </table>
