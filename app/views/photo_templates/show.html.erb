@@ -21,7 +21,7 @@
         <input id="url_field" type="text" name="image_update" value="<%= @the_photo.image %>">
 
         <label for="caption_field">Caption</label>
-          <input id="caption_field" type="text" name="caption_update" value="<%= @the_photo.caption %>">
+          <textarea id="caption_field" type="text" name="caption_update"><%= @the_photo.caption %>"></textarea>
   <button>
   Update photo
   </button>
@@ -60,8 +60,8 @@
 <label for="author_field">Author ID </label>
 <input id="author_field" type="text" name="author_id" placeholder="Enter your author ID">
 
-<label for="comment_field">Comment</label>
-<input id="comment_field" type="text" name="comment_add" placeholder="Enter a comment...">
+<label for="comment">Comment</label>
+<textarea id="comment" type="text" name="comment_add" placeholder="Enter a comment..."></textarea>
 
 <button>Add comment</button>
 

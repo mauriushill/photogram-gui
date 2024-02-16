@@ -38,7 +38,7 @@ class PhotoController < ApplicationController
   def insert
     n = Photo.new
     n.image = params.fetch("pic_url")
-    n.caption = params.fetch("caption")
+    n.caption = params.fetch("caption_id")
     n.owner_id = params.fetch("owner")
     n.save
     redirect_to("/photos/#{n.owner_id}")
