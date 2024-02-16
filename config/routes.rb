@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post("/insert_photo", { :controller => "photo", :action => "insert"})
   get("/photos/:a_photo", { :controller => "photo", :action => "show"})
   post("/update_photo/:the_photo", { :controller => "photo", :action => "update"})
-  post
+  get("/delete_photo/:photo_id", { :controller => "photo", :action => "destroy"})
+  post("/insert_comment", { :controller => "photo", :action => "comment"})
 end

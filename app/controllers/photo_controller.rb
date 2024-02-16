@@ -1,7 +1,30 @@
 class PhotoController < ApplicationController
+  def comment
+    update = Comment.new
+    update.photo_id = params.fetch("photo_id")
+    update.author_id = params.fetch("author_id")
+    update.body = params.fetch("comment_add")
+    update.save
+    redirect_to("/photos/#{update.photo_id}")
+  end
+  def destroy
+    pic_id = params.fetch("photo_id")
+    match = Photo.where({ :id => pic_id})
+    @del_photo = match.at(0)
+    @del_photo.destroy
+
+    redirect_to("/photos")
+  end
   def update
-    
-    redirect_to("/photos/#{}")
+      the_id = params.fetch("the_photo")
+    match = Photo.where({:id => the_id})
+    photo_id = match.at(0)
+
+      photo_id.image = params.fetch("image_update")
+      photo_id.caption = params.fetch("caption_update")
+      photo_id.save
+
+    redirect_to("/photos/#{photo_id.id}")
   end
 
 
